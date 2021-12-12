@@ -10,7 +10,8 @@ sys.path.append("cmds/single")
 
 os.chdir("cmds")
 folders = os.listdir()
-folders.remove("single")
+if "single" in folders:
+    folders.remove("single")
 os.chdir("..")
 for folder in folders:
     os.chdir("cmds/" + folder)
