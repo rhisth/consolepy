@@ -10,8 +10,6 @@ sys.path.append("cmds/single")
 
 os.chdir("cmds")
 folders = os.listdir()
-if "single" in folders:
-    folders.remove("single")
 os.chdir("..")
 for folder in folders:
     os.chdir("cmds/" + folder)
@@ -49,4 +47,4 @@ def compile(cmd):
         print("[ERROR] Wrong syntax.")
 
 while True:
-    compile(input(">").split(" ", 1))
+    compile(input(f"{os.getcwd()}>").split(" ", 1))
