@@ -4,8 +4,6 @@ import os
 modules = []
 commands = []
 
-sys.path.append("cmds/single")
-
 os.chdir("cmds")
 folders = os.listdir()
 os.chdir("..")
