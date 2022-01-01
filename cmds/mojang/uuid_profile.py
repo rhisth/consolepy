@@ -18,4 +18,9 @@ def uuid_profile(uuid):
             if not "metadata" in answer["textures"]["SKIN"]:
                 print(" Model: default")
             else:
-                print(f" Model: slim")
+                print(" Model: slim")
+        print("Cape: ", end= "")
+        if not "CAPE" in answer["textures"]:
+            print("None")
+        else:
+            print(answer['textures']['CAPE']['url'])
