@@ -1,9 +1,7 @@
 import sys
 import os
-from config import modules
-for module in modules:
-    exec(f"import {module}")
 
+modules = []
 commands = []
 
 sys.path.append("cmds/single")
@@ -14,15 +12,24 @@ os.chdir("..")
 for folder in folders:
     os.chdir("cmds/" + folder)
     files = os.listdir()
-    os.chdir("../..")
     if "requirements.txt" in files:
+        file = open("requirements.txt", "r")
+        for el in file:
+            if not el in modules:
+                el = el.replace("\n", "")
+                modules.append(el)
         files.remove("requirements.txt")
+        file.close()
+    os.chdir("../..")
     if "__pycache__" in files:
         files.remove("__pycache__")
     sys.path.append("cmds/" + folder)
     for file in files:
         commands.append(file.replace('.py', ''))
         exec(f"from {file.replace('.py', '')} import {file.replace('.py', '')}")
+
+for module in modules:
+    exec(f"import {module}")
 
 def compile(cmd):
     global commands
