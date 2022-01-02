@@ -1,2 +1,3 @@
-def echo(text):
-    print(text)
+def echo(*args):
+    for el in args:
+        print(el)
