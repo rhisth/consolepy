@@ -1,6 +1,7 @@
 import sys
 import os
 
+from config import argument_separator
 modules = []
 commands = []
 
@@ -29,6 +30,11 @@ for folder in folders:
 for module in modules:
     exec(f"import {module}")
 
+if sys.platform == "win32":
+    os.system("cls")
+else:
+    os.system("clear")
+
 def compile(cmd):
     global commands
     if not cmd[0] in commands:
@@ -36,7 +42,7 @@ def compile(cmd):
         return
     str = ""
     if len(cmd) != 1:
-        args = cmd[1].split(";")
+        args = cmd[1].split(argument_separator)
         str = args[0]
         args.remove(args[0])
         for index, item in enumerate(args):
