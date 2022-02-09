@@ -43,11 +43,7 @@ def compile(cmd):
     str = ""
     if len(cmd) != 1:
         args = cmd[1].split(argument_separator)
-        str = args[0]
-        args.remove(args[0])
-        for index, item in enumerate(args):
-            args[index] = item.strip()
-            str += f", {args[index]}"
+        str += ",".join(list(map(lambda x: x.strip(), args)))
     try:
         exec(f"{cmd[0]}({str})")
     except SyntaxError:
