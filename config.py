@@ -1,1 +1,1 @@
-argument_separator = " "
+argument_separator = ","
