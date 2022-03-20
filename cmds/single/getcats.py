@@ -2,7 +2,7 @@ import requests
 from os import chdir
 from time import sleep
 
-def cat(count, folder):
+def getcats(count, folder):
     id = 0
     chdir(folder)
     for i in range(count):
