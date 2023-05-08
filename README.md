@@ -1,3 +1,5 @@
-# consolepy 0.3
+# consolepy
 
-Doesn't really work good at the moment, by the way.
+```
+codeblack
+```
